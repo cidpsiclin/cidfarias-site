@@ -9,55 +9,68 @@
 <style>
 :root{
   --dark:#3f3f3f;
-  --light:#ffffff;
+  --dark-soft:#4a4a4a;
+  --light:#f7f7f5;
   --accent:#9fb37a;
-  --text-dark:#222;
+  --text-dark:#1f1f1f;
   --text-light:#f4f4f4;
 }
 
+/* RESET */
 *{box-sizing:border-box}
-
 body{
   margin:0;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  line-height:1.8;
+  font-family: system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+  line-height:1.9;
   color:var(--text-dark);
 }
 
+/* GLOBAL */
 section{
-  padding:100px 8%;
+  padding:110px 10%;
+  position:relative;
+  overflow:hidden;
 }
+h1,h2,h3{
+  font-weight:600;
+  line-height:1.3;
+}
+h2{font-size:2.2rem;margin-bottom:36px}
+h3{font-size:1.6rem;margin-top:60px}
+p{
+  font-size:1.15rem;
+  max-width:960px;
+  margin-bottom:28px;
+}
+a{
+  color:var(--accent);
+  font-weight:600;
+  text-decoration:none;
+}
+a:hover{text-decoration:underline}
 
+/* BACKGROUNDS */
 .dark{
   background:var(--dark);
   color:var(--text-light);
 }
-
 .light{
   background:var(--light);
 }
 
-h1,h2,h3{
-  font-weight:600;
-  margin-bottom:28px;
+/* ABSTRACT WATERMARK */
+.watermark{
+  position:absolute;
+  inset:0;
+  background-image:url("assets/hero-identidade.jpg");
+  background-size:1400px;
+  background-repeat:no-repeat;
+  background-position:120% 30%;
+  opacity:0.04;
+  pointer-events:none;
 }
 
-p{
-  font-size:1.15rem;
-  max-width:900px;
-}
-
-a{
-  color:var(--accent);
-  text-decoration:none;
-  font-weight:600;
-}
-
-a:hover{
-  text-decoration:underline;
-}
-
-/* HERO */
+/* HERO FULL */
 .hero{
   min-height:100vh;
   display:flex;
@@ -65,43 +78,52 @@ a:hover{
   justify-content:center;
   align-items:center;
   text-align:center;
+  background-image:url("assets/hero-identidade.jpg");
+  background-size:cover;
+  background-position:center;
   position:relative;
 }
-
-.hero img{
-  max-width:760px;
-  width:100%;
-  margin-bottom:40px;
+.hero::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,0.35);
 }
-
+.hero-content{
+  position:relative;
+  z-index:2;
+  max-width:900px;
+}
 .hero h1{
-  margin-top:10px;
+  font-size:2.8rem;
+  margin-bottom:20px;
 }
-
+.hero p{
+  font-size:1.25rem;
+}
 .scroll{
   position:absolute;
   bottom:30px;
+  z-index:2;
   font-size:2rem;
+  opacity:.7;
 }
 
 /* BLOG */
 .post{
-  max-width:900px;
-  margin-top:50px;
+  max-width:960px;
 }
-
 .post h3{
-  margin-top:50px;
+  margin-top:80px;
 }
 
 /* FOOTER */
 footer{
   background:#222;
   color:#ddd;
-  padding:80px 8%;
+  padding:100px 10%;
 }
-
-footer p, footer a{
+footer p,footer a{
   font-size:1.05rem;
   color:#ddd;
 }
@@ -111,15 +133,17 @@ footer p, footer a{
 <body>
 
 <!-- HERO -->
-<section class="hero dark">
-  <img src="assets/hero-identidade.jpg" alt="Cid Pinheiro Psicólogo">
-  <h1>Seja bem-vindo.</h1>
-  <p>Atendimento psicológico presencial e online.</p>
+<section class="hero">
+  <div class="hero-content">
+    <h1>Seja bem-vindo.</h1>
+    <p>Atendimento psicológico presencial e online.</p>
+  </div>
   <div class="scroll">⌄</div>
 </section>
 
 <!-- QUEM SOU -->
 <section class="light">
+  <div class="watermark"></div>
   <h2>Quem sou</h2>
   <p>
     Sou psicólogo clínico e professor universitário. Atuo em Pelotas (RS), integrando clínica,
@@ -127,27 +151,34 @@ footer p, footer a{
     coordenador do <strong>Laboratório de Ciência do Comportamento (LACICO – UFPEL)</strong>.
   </p>
   <p>
-    Minha prática clínica é orientada pela Psicoterapia Analítico-Comportamental (TAC),
-    baseada no behaviorismo radical e em psicologia científica contemporânea.
+    Minha atuação articula prática clínica, produção científica e formação acadêmica,
+    buscando rigor conceitual, clareza didática e compromisso ético com a saúde mental.
   </p>
 </section>
 
 <!-- ABORDAGEM -->
 <section class="dark">
+  <div class="watermark"></div>
   <h2>Abordagem clínica</h2>
   <p>
-    Na Psicoterapia Analítico-Comportamental, o foco do processo terapêutico não está em rótulos,
-    mas na história única de aprendizagem de cada pessoa e na forma como ela se relaciona com
-    seu contexto atual.
+    Minha prática clínica é orientada pela Psicoterapia Analítico-Comportamental (TAC),
+    fundamentada no behaviorismo radical e na psicologia científica contemporânea.
   </p>
   <p>
-    Diagnósticos são utilizados como ferramentas descritivas e clínicas, nunca como definições
+    Isso significa que o foco do processo terapêutico não está em rótulos diagnósticos,
+    mas na história única de aprendizagem de cada pessoa, nas contingências que moldaram
+    seu repertório comportamental e na sua relação atual com o ambiente.
+  </p>
+  <p>
+    Diagnósticos são utilizados como ferramentas clínicas descritivas — importantes para
+    comunicação técnica e planejamento terapêutico —, mas nunca como definições
     identitárias do indivíduo.
   </p>
 </section>
 
 <!-- ATENDIMENTO -->
 <section class="light">
+  <div class="watermark"></div>
   <h2>Público e áreas de atuação</h2>
   <p>
     Atendo adolescentes, adultos e idosos em demandas relacionadas a transtornos de ansiedade,
@@ -156,21 +187,23 @@ footer p, footer a{
   </p>
   <p>
     Atuo também nas áreas de saúde cognitiva do idoso, psicofarmacologia,
-    análise do comportamento, epidemiologia genética e TDAH.
+    análise do comportamento, epidemiologia genética e TDAH, sempre integrando evidências
+    científicas, avaliação funcional e intervenção clínica individualizada.
   </p>
 </section>
 
 <!-- ENSINO -->
 <section class="dark">
+  <div class="watermark"></div>
   <h2>Ensino, ciência e divulgação</h2>
   <p>
     Ministro disciplinas nas áreas de Psicopatologia, Psicofarmacologia, Neuroanatomia,
-    Análise do Comportamento e Avaliação Psicológica.
+    Análise do Comportamento, Avaliação Psicológica e Métodos Quantitativos.
   </p>
   <p>
     Sou criador do podcast <strong>Entre Estímulos</strong>, um projeto de divulgação científica
-    em psicologia que surgiu como iniciativa paradidática para aproximar e otimizar a
-    aprendizagem dos meus alunos.
+    em psicologia que surgiu como iniciativa paradidática, com o objetivo de aproximar
+    conceitos científicos da prática clínica e otimizar a aprendizagem dos meus alunos.
   </p>
   <p>
     <a href="https://lattes.cnpq.br/" target="_blank">Currículo Lattes</a>
@@ -179,29 +212,90 @@ footer p, footer a{
 
 <!-- BLOG -->
 <section class="light">
+  <div class="watermark"></div>
   <h2>Divulgação científica</h2>
 
   <div class="post">
-    <h3>Estimulação vagal e regulação do estresse</h3>
+    <h3>Estimulação vagal e regulação do estresse: o que é, quando usar e por que funciona</h3>
 
     <p>
-      A estimulação do nervo vago tem sido investigada como estratégia auxiliar na regulação
-      do estresse agudo, especialmente por sua relação com o sistema nervoso parassimpático
-      e o eixo hipotálamo-hipófise-adrenal (HPA).
+      Estados de ansiedade e estresse agudo são caracterizados por ativação excessiva do
+      sistema nervoso simpático e do eixo hipotálamo-hipófise-adrenal (HPA), resultando em
+      aumento da frequência cardíaca, hipervigilância, tensão muscular, aceleração do
+      pensamento e maior liberação de cortisol.
     </p>
 
     <p>
-      Um protocolo simples estudado experimentalmente é o <em>Cold Face Test</em>, que consiste
-      na aplicação de estímulo frio na face para ativar reflexos trigêmino-vagais.
+      Em termos subjetivos, esses estados costumam se manifestar como sensação de aperto
+      no peito, respiração curta, inquietação, dificuldade de concentração, sensação de
+      ameaça iminente e perda da sensação de controle.
     </p>
 
     <p>
-      Evidências indicam redução da frequência cardíaca, aumento da variabilidade da frequência
-      cardíaca e atenuação da resposta de cortisol após estressores psicossociais.
+      A estimulação vagal tem sido investigada como estratégia auxiliar para modular esses
+      estados, justamente por favorecer a ativação do sistema nervoso parassimpático,
+      responsável por respostas de recuperação, repouso e regulação fisiológica.
+    </p>
+
+    <h3>O que é o Cold Face Test</h3>
+
+    <p>
+      Um dos protocolos mais simples e estudados é o <em>Cold Face Test</em>, que consiste na
+      aplicação de estímulo frio na face, geralmente na região das bochechas e ao redor do
+      nariz, por um curto período de tempo.
     </p>
 
     <p>
-      Referência:
+      Esse estímulo ativa reflexos trigêmino-vagais, promovendo aumento do tônus vagal,
+      redução da frequência cardíaca e maior variabilidade da frequência cardíaca — um
+      marcador fisiológico associado à capacidade de autorregulação emocional.
+    </p>
+
+    <h3>Passo a passo da técnica</h3>
+
+    <p>
+      O procedimento envolve a aplicação de compressa fria ou água fria no rosto por cerca
+      de 20 a 30 segundos, mantendo a respiração calma e sem apneia voluntária. O objetivo
+      não é gerar desconforto extremo, mas estimular reflexos autonômicos de forma segura.
+    </p>
+
+    <p>
+      A técnica pode ser utilizada em momentos de ansiedade intensa, antes de situações
+      estressoras previsíveis ou como recurso auxiliar em processos terapêuticos, sempre
+      como complemento — e não substituto — de intervenções clínicas estruturadas.
+    </p>
+
+    <h3>Por que isso reduz a ansiedade</h3>
+
+    <p>
+      A ativação vagal promove inibição parcial da resposta simpática e modulação do eixo
+      HPA, resultando em menor liberação de cortisol, desaceleração cardíaca e maior
+      sensação subjetiva de controle fisiológico.
+    </p>
+
+    <p>
+      Do ponto de vista comportamental, essa mudança fisiológica altera o contexto interno
+      no qual respostas de esquiva, ruminação e hipervigilância ocorrem, favorecendo maior
+      flexibilidade comportamental.
+    </p>
+
+    <h3>O que o estudo mostrou</h3>
+
+    <p>
+      No estudo conduzido por Richer et al. (2022), participantes expostos a estressores
+      psicossociais apresentaram redução significativa da resposta de estresse quando o
+      Cold Face Test foi aplicado, evidenciada por menores níveis de cortisol e alterações
+      favoráveis em parâmetros cardiovasculares.
+    </p>
+
+    <p>
+      Os resultados sustentam o uso da estimulação vagal como estratégia auxiliar baseada
+      em evidências para regulação do estresse agudo, especialmente em contextos clínicos
+      e educacionais.
+    </p>
+
+    <p>
+      <strong>Referência (APA):</strong><br>
       Richer, R., Zenkner, J., Küderle, A., Rohleder, N., & Eskofier, B. M. (2022).
       <em>Vagus activation by Cold Face Test reduces acute psychosocial stress responses</em>.
       Scientific Reports, 12, 19270.
@@ -215,7 +309,6 @@ footer p, footer a{
   <h2>Contato</h2>
   <p>📞 WhatsApp: (53) 99105-3796</p>
   <p>✉️ Email: cidpsiclin@gmail.com</p>
-  <p><a href="#">Mini-site profissional</a></p>
 </footer>
 
 </body>
