@@ -1,38 +1,210 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
-  <title>Cid Pinheiro | Psicólogo</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="UTF-8">
+<title>Cid Pinheiro | Psicólogo</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+<style>
+:root{
+  --chumbo:#4a4a4a;
+  --claro:#ffffff;
+  --texto-escuro:#222;
+  --texto-claro:#f5f5f5;
+}
 
-    html, body {
-      width: 100%;
-      height: 100%;
-    }
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
 
-    body {
-      background: #000;
-    }
+body{
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  line-height:1.6;
+}
 
-    .hero {
-      width: 100vw;
-      height: 100vh;
-      background-image: url("assets/hero-identidade.jpg");
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-    }
-  </style>
+section{
+  padding:80px 8vw;
+}
+
+/* HERO */
+.hero{
+  min-height:100vh;
+  background:url("assets/hero-identidade.jpg") center/cover no-repeat;
+  display:flex;
+  align-items:flex-end;
+}
+
+.hero h1{
+  color:white;
+  font-size:2.2rem;
+  letter-spacing:1px;
+}
+
+/* SEÇÕES */
+.claro{
+  background:var(--claro);
+  color:var(--texto-escuro);
+}
+
+.chumbo{
+  background:var(--chumbo);
+  color:var(--texto-claro);
+}
+
+.container{
+  max-width:1100px;
+  margin:auto;
+}
+
+/* TÍTULOS */
+h2{
+  font-size:2rem;
+  margin-bottom:24px;
+}
+
+p{
+  max-width:800px;
+  margin-bottom:16px;
+}
+
+/* LISTA */
+ul{
+  max-width:800px;
+  padding-left:20px;
+}
+
+li{
+  margin-bottom:8px;
+}
+
+/* POSTS */
+.posts{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:24px;
+}
+
+.post{
+  border:1px solid rgba(0,0,0,.1);
+  padding:16px;
+}
+
+.post img{
+  width:100%;
+  height:auto;
+  margin-bottom:12px;
+}
+</style>
 </head>
 
 <body>
-  <section class="hero"></section>
+
+<!-- ABERTURA -->
+<section class="hero">
+  <h1>CID PINHEIRO · psicólogo</h1>
+</section>
+
+<!-- SEÇÃO 1 -->
+<section class="claro">
+  <div class="container">
+    <h2>Quem sou e como trabalho</h2>
+    <p>
+      Sou psicólogo clínico, professor universitário e pesquisador, com formação em
+      Neuropsicologia Clínica e Análise do Comportamento.
+    </p>
+    <p>
+      Minha prática clínica é orientada pela <strong>Terapia Analítico-Comportamental (TAC)</strong>,
+      uma abordagem fundamentada cientificamente, sensível à singularidade de cada pessoa
+      e comprometida com intervenções baseadas em evidências.
+    </p>
+    <p>
+      Isso significa que o foco do processo terapêutico não está em rótulos,
+      mas na tua <strong>história única de aprendizagem</strong> e na forma como teus comportamentos
+      se relacionam com o contexto em que você vive.
+    </p>
+  </div>
+</section>
+
+<!-- SEÇÃO 2 -->
+<section class="chumbo">
+  <div class="container">
+    <h2>Abordagem clínica</h2>
+    <p>
+      A Terapia Analítico-Comportamental compreende o sofrimento psicológico
+      a partir das relações entre comportamento, ambiente e história de vida.
+    </p>
+    <p>
+      Em vez de buscar explicações internas abstratas, trabalhamos com aquilo
+      que pode ser compreendido, analisado e modificado: padrões de interação,
+      contingências e formas de enfrentamento aprendidas ao longo da vida.
+    </p>
+  </div>
+</section>
+
+<!-- SEÇÃO 3 -->
+<section class="claro">
+  <div class="container">
+    <h2>Públicos atendidos</h2>
+    <ul>
+      <li>Adolescentes</li>
+      <li>Adultos</li>
+      <li>Idosos</li>
+    </ul>
+    <p>
+      O trabalho clínico é sempre adaptado à fase do desenvolvimento,
+      às demandas atuais e às condições de vida de cada pessoa.
+    </p>
+  </div>
+</section>
+
+<!-- SEÇÃO 4 -->
+<section class="chumbo">
+  <div class="container">
+    <h2>Demandas clínicas</h2>
+    <p>Atendo diferentes quadros e sofrimentos psicológicos, incluindo:</p>
+    <ul>
+      <li>Transtornos de ansiedade</li>
+      <li>Transtornos do humor (depressão, transtorno bipolar)</li>
+      <li>Transtornos de personalidade</li>
+      <li>Transtornos do neurodesenvolvimento</li>
+      <li>Dificuldades emocionais e relacionais em geral</li>
+    </ul>
+    <p>
+      Sempre com uma avaliação cuidadosa e intervenções compatíveis
+      com a complexidade de cada caso.
+    </p>
+  </div>
+</section>
+
+<!-- SEÇÃO 5 -->
+<section class="claro">
+  <div class="container">
+    <h2>Textos e reflexões</h2>
+    <div class="posts">
+
+      <div class="post">
+        <img src="assets/hero-identidade.jpg" alt="">
+        <h3>Título do texto</h3>
+        <p>
+          Espaço para textos autorais, reflexões clínicas,
+          divulgação científica e imagens relacionadas.
+        </p>
+      </div>
+
+      <div class="post">
+        <img src="assets/hero-identidade.jpg" alt="">
+        <h3>Outro texto</h3>
+        <p>
+          Aqui você poderá postar conteúdos sempre que quiser,
+          apenas duplicando esse bloco.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
 </body>
 </html>
