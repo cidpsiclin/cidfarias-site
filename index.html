@@ -3,34 +3,29 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Cid Pinheiro | Psicólogo</title>
 
 <style>
 :root{
-  --dark:#2f2f2f;
-  --light:#f9f9f7;
+  --dark:#3f3f3f;
+  --light:#ffffff;
   --accent:#9fb37a;
-  --text-dark:#1e1e1e;
+  --text-dark:#222;
   --text-light:#f4f4f4;
 }
 
-*{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
-}
+*{box-sizing:border-box}
 
 body{
+  margin:0;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  line-height:1.85;
+  line-height:1.8;
   color:var(--text-dark);
-  background:var(--light);
 }
 
-/* ===== SEÇÕES ===== */
+/* SECTIONS */
 section{
-  padding:110px 10%;
+  padding:110px 8%;
 }
 
 .dark{
@@ -44,108 +39,114 @@ section{
 
 h1,h2,h3{
   font-weight:600;
-  margin-bottom:32px;
-  line-height:1.3;
+  margin-bottom:28px;
 }
 
 p{
-  font-size:1.18rem;
+  font-size:1.15rem;
   max-width:920px;
-  margin-bottom:26px;
 }
 
-/* ===== LINKS ===== */
+/* LINKS */
 a{
   color:var(--accent);
-  font-weight:600;
   text-decoration:none;
+  font-weight:600;
 }
+a:hover{ text-decoration:underline; }
 
-a:hover{
-  text-decoration:underline;
-}
-
-/* ===== HERO ===== */
+/* HERO */
 .hero{
   min-height:100vh;
-  background:var(--dark);
+  position:relative;
   display:flex;
-  flex-direction:column;
-  justify-content:center;
   align-items:center;
-  text-align:center;
-  padding:0;
+  justify-content:center;
+  overflow:hidden;
 }
 
 .hero img{
   width:100%;
-  max-width:none;
-  height:auto;
-  display:block;
+  height:100%;
+  object-fit:cover;
 }
 
+/* TEXTO DO HERO (CORRIGIDO) */
 .hero-content{
   position:absolute;
+  top:8%;
+  left:50%;
+  transform:translateX(-50%);
   display:flex;
   flex-direction:column;
   align-items:center;
-  gap:18px;
+  gap:16px;
+  z-index:2;
+  text-align:center;
+  max-width:90%;
 }
 
-.hero h1{
-  font-size:2.6rem;
-  color:var(--text-light);
+.hero-content h1{
+  font-size:2.4rem;
+  margin:0;
 }
 
-.hero p{
-  font-size:1.25rem;
-  color:#e0e0e0;
+.hero-content p{
+  font-size:1.15rem;
+  opacity:0.9;
 }
 
+/* SETA */
 .scroll{
   position:absolute;
-  bottom:30px;
+  bottom:28px;
   font-size:2rem;
-  color:#ccc;
+  opacity:0.7;
 }
 
-/* ===== POST ===== */
+/* BLOG */
 .post{
-  margin-top:60px;
+  max-width:920px;
 }
 
 .post h3{
   margin-top:60px;
 }
 
-/* ===== FOOTER ===== */
+/* FOOTER */
 footer{
-  background:#1f1f1f;
-  color:#e0e0e0;
-  padding:90px 10%;
+  background:#222;
+  color:#ddd;
+  padding:90px 8%;
+}
+
+footer h2{
+  margin-bottom:30px;
 }
 
 footer p{
-  font-size:1.1rem;
+  font-size:1.05rem;
 }
 
-/* BOTÕES */
-.btn-secondary{
+.footer-links{
+  margin-top:30px;
+  display:flex;
+  gap:30px;
+  flex-wrap:wrap;
+}
+
+.button{
   display:inline-block;
-  margin-top:28px;
-  margin-right:14px;
-  padding:14px 30px;
+  padding:14px 28px;
   border:2px solid var(--accent);
   color:var(--accent);
-  font-size:1.05rem;
-  border-radius:4px;
-  transition:.25s ease;
+  border-radius:40px;
+  transition:all .25s ease;
 }
 
-.btn-secondary:hover{
+.button:hover{
   background:var(--accent);
-  color:#1f1f1f;
-  text-decoration:none;
+  color:#222;
 }
 </style>
 </head>
@@ -153,12 +154,14 @@ footer p{
 <body>
 
 <!-- HERO -->
-<section class="hero">
+<section class="hero dark">
   <img src="assets/hero-identidade.jpg" alt="Cid Pinheiro Psicólogo">
+  
   <div class="hero-content">
     <h1>Seja bem-vindo.</h1>
     <p>Atendimento psicológico presencial e online.</p>
   </div>
+
   <div class="scroll">⌄</div>
 </section>
 
@@ -167,14 +170,16 @@ footer p{
   <h2>Quem sou</h2>
 
   <p>
-    Sou psicólogo clínico e professor universitário. Atuo em Pelotas (RS), integrando clínica,
-    ensino e pesquisa. Sou mestre em Ciências da Saúde, doutorando em Epidemiologia e
-    coordenador do <strong>Laboratório de Ciência do Comportamento (LACICO – UFPEL)</strong>.
+    Sou psicólogo clínico e professor universitário. Atuo em Pelotas (RS),
+    integrando clínica, ensino e pesquisa. Sou mestre em Ciências da Saúde,
+    doutorando em Epidemiologia e coordenador do
+    <strong>Laboratório de Ciência do Comportamento (LACICO – UFPEL)</strong>.
   </p>
 
   <p>
-    Minha prática clínica é orientada pela Psicoterapia Analítico-Comportamental (TAC),
-    fundamentada no behaviorismo radical e na psicologia científica contemporânea.
+    Minha prática clínica é orientada pela
+    <strong>Psicoterapia Analítico-Comportamental (TAC)</strong>,
+    fundamentada no behaviorismo radical e em psicologia científica contemporânea.
   </p>
 </section>
 
@@ -183,13 +188,13 @@ footer p{
   <h2>Abordagem clínica</h2>
 
   <p>
-    Na Psicoterapia Analítico-Comportamental, o foco do processo terapêutico não está em rótulos
-    diagnósticos, mas na história única de aprendizagem de cada pessoa e na sua relação atual
-    com o contexto.
+    Na Psicoterapia Analítico-Comportamental, o foco do processo terapêutico
+    não está em rótulos diagnósticos, mas na história única de aprendizagem
+    de cada pessoa e na forma como ela se relaciona com seu contexto.
   </p>
 
   <p>
-    Diagnósticos são utilizados como instrumentos clínicos descritivos e funcionais,
+    Diagnósticos são utilizados como ferramentas clínicas e descritivas,
     nunca como definições identitárias do indivíduo.
   </p>
 </section>
@@ -199,14 +204,16 @@ footer p{
   <h2>Público e áreas de atuação</h2>
 
   <p>
-    Atendo adolescentes, adultos e idosos em demandas relacionadas a transtornos de ansiedade,
-    transtornos do humor, transtorno bipolar, transtornos de personalidade e condições do
-    neurodesenvolvimento, como o TDAH.
+    Atendo adolescentes, adultos e idosos em demandas relacionadas a
+    transtornos de ansiedade, transtornos do humor, transtorno bipolar,
+    transtornos de personalidade e condições do neurodesenvolvimento,
+    como o TDAH.
   </p>
 
   <p>
-    Atuo também nas áreas de saúde cognitiva do idoso, psicofarmacologia,
-    análise do comportamento, epidemiologia genética e TDAH.
+    Atuo também nas áreas de saúde cognitiva do idoso,
+    psicofarmacologia, análise do comportamento,
+    epidemiologia genética e TDAH.
   </p>
 </section>
 
@@ -215,14 +222,16 @@ footer p{
   <h2>Ensino, ciência e divulgação</h2>
 
   <p>
-    Ministro disciplinas nas áreas de Psicopatologia, Psicofarmacologia, Neuroanatomia,
-    Análise do Comportamento e Avaliação Psicológica.
+    Ministro disciplinas nas áreas de Psicopatologia, Psicofarmacologia,
+    Neuroanatomia, Análise do Comportamento, Avaliação Psicológica
+    e temas relacionados à saúde mental baseada em evidências.
   </p>
 
   <p>
-    Sou criador do podcast <strong>Entre Estímulos</strong>, um projeto de divulgação científica
-    em psicologia que surgiu como iniciativa paradidática para aproximar e qualificar a
-    aprendizagem dos meus alunos.
+    Sou criador do podcast <strong>Entre Estímulos</strong>,
+    um projeto de divulgação científica em psicologia que surgiu como
+    iniciativa paradidática para aproximar e otimizar a aprendizagem
+    dos meus alunos.
   </p>
 
   <p>
@@ -238,38 +247,48 @@ footer p{
     <h3>Estimulação vagal e regulação do estresse</h3>
 
     <p>
-      A ativação do nervo vago tem sido estudada como estratégia auxiliar na regulação do
-      estresse agudo, sobretudo por seu papel central no sistema nervoso parassimpático
-      e na modulação do eixo hipotálamo-hipófise-adrenal (HPA).
+      A estimulação do nervo vago tem sido investigada como estratégia auxiliar
+      na regulação do estresse agudo, especialmente por sua relação com o
+      sistema nervoso parassimpático e com o eixo hipotálamo–hipófise–adrenal (HPA),
+      envolvido na liberação de cortisol frente a situações estressoras.
     </p>
 
     <p>
-      Em situações de ansiedade, observa-se aumento da frequência cardíaca, respiração
-      superficial, tensão muscular, sensação de ameaça iminente e dificuldade de regulação
-      emocional. Esses sinais refletem predominância simpática e ativação sustentada do eixo HPA.
+      Estados de ansiedade aguda costumam envolver sintomas como taquicardia,
+      respiração superficial, tensão muscular, sensação de ameaça iminente,
+      inquietação e dificuldade de concentração. Esses sinais refletem a
+      predominância do sistema nervoso simpático.
     </p>
 
     <p>
-      Um protocolo simples e seguro é o <strong>Cold Face Test</strong>, que consiste na aplicação
-      de estímulo frio na região facial (especialmente bochechas e área periorbital) por
-      30 a 60 segundos. Esse estímulo ativa reflexos trigêmino-vagais, promovendo aumento do
-      tônus parassimpático.
+      Um protocolo simples estudado experimentalmente é o
+      <em>Cold Face Test</em>, que consiste na aplicação de estímulo frio
+      na região da face (principalmente bochechas e região periocular),
+      ativando reflexos trigêmino-vagais associados à resposta de mergulho.
     </p>
 
     <p>
-      O mecanismo envolve redução da frequência cardíaca, aumento da variabilidade da frequência
-      cardíaca (VFC) e atenuação da liberação de cortisol, favorecendo a recuperação fisiológica
-      após estressores psicossociais.
+      O procedimento envolve: (1) exposição breve ao frio por cerca de 30 a 60 segundos,
+      (2) manutenção da respiração calma durante a aplicação e
+      (3) interrupção imediata caso haja desconforto intenso.
+      O objetivo é induzir uma resposta fisiológica parassimpática.
     </p>
 
     <p>
-      No estudo de Richer et al. (2022), participantes submetidos ao Cold Face Test apresentaram
-      respostas autonômicas mais rápidas e eficientes após exposição a tarefas estressoras,
-      indicando efeito regulatório mensurável e replicável.
+      Estudos mostram que essa ativação vagal está associada à redução da frequência cardíaca,
+      aumento da variabilidade da frequência cardíaca e atenuação da resposta de cortisol
+      após estressores psicossociais, indicando maior capacidade de regulação autonômica.
     </p>
 
     <p>
-      Referência:<br>
+      Esses efeitos foram observados por meio de medidas fisiológicas objetivas,
+      como eletrocardiografia e dosagem de cortisol salivar,
+      demonstrando que a técnica produz efeitos mensuráveis
+      e não apenas subjetivos.
+    </p>
+
+    <p>
+      Referência:
       Richer, R., Zenkner, J., Küderle, A., Rohleder, N., & Eskofier, B. M. (2022).
       <em>Vagus activation by Cold Face Test reduces acute psychosocial stress responses</em>.
       Scientific Reports, 12, 19270.
@@ -285,13 +304,10 @@ footer p{
   <p>📞 WhatsApp: (53) 99105-3796</p>
   <p>✉️ Email: cidpsiclin@gmail.com</p>
 
-  <a href="https://SEU-MINI-SITE" class="btn-secondary" target="_blank">
-    Mini-site profissional
-  </a>
-
-  <a href="https://instagram.com/SEU-INSTAGRAM" class="btn-secondary" target="_blank">
-    Instagram
-  </a>
+  <div class="footer-links">
+    <a class="button" href="#" target="_blank">Mini-site profissional</a>
+    <a class="button" href="https://instagram.com/" target="_blank">Instagram</a>
+  </div>
 </footer>
 
 </body>
