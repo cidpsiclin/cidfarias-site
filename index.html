@@ -3,208 +3,219 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Cid Pinheiro | Psicólogo</title>
 
 <style>
 :root{
-  --chumbo:#4b4b4b;
-  --claro:#ffffff;
-  --cinza:#f2f2f2;
-  --texto:#1e1e1e;
-  --acento:#9db07a;
+  --dark:#3f3f3f;
+  --light:#ffffff;
+  --accent:#9fb37a;
+  --text-dark:#222;
+  --text-light:#f4f4f4;
 }
 
-*{margin:0;padding:0;box-sizing:border-box;}
+*{box-sizing:border-box}
 
 body{
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
-  color:var(--texto);
+  margin:0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   line-height:1.7;
+  color:var(--text-dark);
+}
+
+section{
+  padding:90px 8%;
+}
+
+.dark{
+  background:var(--dark);
+  color:var(--text-light);
+}
+
+.light{
+  background:var(--light);
 }
 
 h1,h2,h3{
   font-weight:600;
-  letter-spacing:.02em;
+  margin-bottom:24px;
 }
 
-p{max-width:900px;margin-bottom:18px;}
-
-section{
-  padding:96px 8%;
+p{
+  font-size:1.1rem;
+  max-width:900px;
 }
 
-.section-light{background:var(--claro);}
-.section-dark{background:var(--chumbo);color:#fff;}
+a{
+  color:var(--accent);
+  text-decoration:none;
+  font-weight:500;
+}
 
-.section-dark p,
-.section-dark h2{color:#fff;}
+a:hover{
+  text-decoration:underline;
+}
 
 /* HERO */
 .hero{
-  height:100vh;
-  background:url("assets/hero-identidade.jpg") center/cover no-repeat;
-  position:relative;
-}
-
-.hero::after{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:rgba(0,0,0,.15);
-}
-
-.hero-content{
-  position:relative;
-  z-index:2;
-  height:100%;
+  min-height:100vh;
   display:flex;
   flex-direction:column;
-  justify-content:space-between;
-  padding:32px;
-}
-
-.hero-top{
-  color:#fff;
-  font-size:1.1rem;
-  letter-spacing:.05em;
-}
-
-.scroll-down{
-  display:flex;
   justify-content:center;
-  padding-bottom:24px;
+  align-items:center;
+  text-align:center;
+  position:relative;
 }
 
-.scroll-down span{
-  width:30px;
-  height:30px;
-  border-left:2px solid #fff;
-  border-bottom:2px solid #fff;
-  transform:rotate(-45deg);
-  animation:bounce 2s infinite;
+.hero img{
+  max-width:720px;
+  width:100%;
+  margin-bottom:40px;
 }
 
-@keyframes bounce{
-  0%,20%,50%,80%,100%{transform:rotate(-45deg) translateY(0);}
-  40%{transform:rotate(-45deg) translateY(10px);}
-  60%{transform:rotate(-45deg) translateY(5px);}
+.scroll{
+  position:absolute;
+  bottom:30px;
+  font-size:2rem;
 }
 
-/* LISTAS */
-ul{padding-left:22px;max-width:900px;}
-li{margin-bottom:8px;}
-
-/* POSTS */
-.posts{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-  gap:28px;
+/* BLOG */
+.post{
+  max-width:900px;
   margin-top:40px;
 }
 
-.post{
-  border:1px solid var(--cinza);
-  padding:20px;
-  background:#fff;
+.post h3{
+  margin-top:40px;
 }
-
-.post img{width:100%;margin-bottom:14px;}
 
 /* FOOTER */
 footer{
-  background:#111;
-  color:#fff;
-  padding:64px 8%;
+  background:#222;
+  color:#ddd;
+  padding:60px 8%;
 }
 
-footer h2{margin-bottom:20px;}
-
-footer a{
-  display:block;
-  color:#fff;
-  text-decoration:none;
-  margin-bottom:10px;
+footer p, footer a{
+  font-size:1rem;
+  color:#ddd;
 }
-
-footer a:hover{text-decoration:underline;}
 </style>
 </head>
 
 <body>
 
-<header class="hero">
-  <div class="hero-content">
-    <div class="hero-top">Seja bem-vindo.</div>
-    <div class="scroll-down"><span></span></div>
-  </div>
-</header>
+<!-- HERO -->
+<section class="hero dark">
+  <img src="assets/capa.png" alt="Cid Pinheiro Psicólogo">
+  <h1>Seja bem-vindo.</h1>
+  <p>Atendimento psicológico presencial e online.</p>
+  <div class="scroll">⌄</div>
+</section>
 
-<section class="section-light">
-  <h2>Quem sou e como trabalho</h2>
+<!-- QUEM SOU -->
+<section class="light">
+  <h2>Quem sou</h2>
   <p>
-    Sou psicólogo clínico, professor universitário e pesquisador. Minha atuação integra prática clínica, ensino e pesquisa científica, orientada por rigor conceitual, ética profissional e intervenções baseadas em evidências.
+    Sou psicólogo clínico e professor universitário. Atuo em Pelotas (RS) e desenvolvo meu trabalho integrando clínica, ensino e pesquisa.
+    Sou mestre em Ciências da Saúde, doutorando em Epidemiologia e coordenador do
+    <strong>Laboratório de Ciência do Comportamento (LACICO – UFPEL)</strong>.
   </p>
   <p>
-    Na Psicoterapia Analítico-Comportamental, o foco do processo terapêutico não está em rótulos diagnósticos isolados, mas na história singular de aprendizagem de cada pessoa e na relação funcional que ela estabelece com seus contextos de vida.
+    Minha prática clínica é orientada pela Psicoterapia Analítico-Comportamental (TAC), com base no behaviorismo radical
+    e na psicologia científica contemporânea.
   </p>
 </section>
 
-<section class="section-dark">
+<!-- ABORDAGEM -->
+<section class="dark">
   <h2>Abordagem clínica</h2>
   <p>
-    Trabalho a partir da Terapia Analítico-Comportamental (TAC), uma abordagem que compreende o sofrimento psicológico como resultado de histórias de reforçamento, contingências ambientais e práticas culturais.
+    A Psicoterapia Analítico-Comportamental não tem como foco rótulos diagnósticos,
+    mas a compreensão da história única de aprendizagem de cada pessoa e de sua relação com o contexto atual.
   </p>
   <p>
-    O objetivo terapêutico é ampliar repertórios, favorecer maior flexibilidade comportamental e promover autonomia, respeitando limites, valores e contextos individuais.
+    Diagnósticos são utilizados como ferramentas descritivas e comunicativas,
+    nunca como definições identitárias do indivíduo.
   </p>
 </section>
 
-<section class="section-light">
-  <h2>Público atendido</h2>
-  <p>Atendo adolescentes, adultos e idosos em demandas relacionadas a:</p>
-  <ul>
-    <li>Transtornos de ansiedade</li>
-    <li>Transtornos do humor (depressão e transtorno bipolar)</li>
-    <li>Transtornos da personalidade</li>
-    <li>Transtornos do neurodesenvolvimento (incluindo TDAH)</li>
-    <li>Sofrimento psicológico associado ao envelhecimento e saúde cognitiva do idoso</li>
-  </ul>
-</section>
-
-<section class="section-dark">
-  <h2>Ensino, pesquisa e divulgação científica</h2>
+<!-- ATENDIMENTO -->
+<section class="light">
+  <h2>Público e áreas de atuação</h2>
   <p>
-    Atuo como professor universitário nas áreas de Análise do Comportamento, Psicofarmacologia, Saúde Cognitiva do Idoso, Epidemiologia Genética e TDAH.
+    Atendo adolescentes, adultos e idosos, em demandas relacionadas a transtornos de ansiedade,
+    transtornos do humor, transtorno bipolar, transtornos de personalidade e condições do neurodesenvolvimento,
+    como o TDAH.
   </p>
   <p>
-    Sou criador do podcast <strong>Entre Estímulos</strong>, um projeto de divulgação científica em psicologia que surgiu como iniciativa paradidática para aproximar e otimizar a aprendizagem dos meus alunos.
-  </p>
-  <p>
-    <a href="https://lattes.cnpq.br/5072857995301252" target="_blank">Acessar Currículo Lattes</a>
+    Também atuo nas áreas de saúde cognitiva do idoso, psicofarmacologia,
+    análise do comportamento, epidemiologia genética e TDAH.
   </p>
 </section>
 
-<section class="section-light">
-  <h2>Textos e imagens</h2>
+<!-- ENSINO -->
+<section class="dark">
+  <h2>Ensino, ciência e divulgação</h2>
   <p>
-    Espaço dedicado à publicação de textos, reflexões e materiais visuais relacionados à clínica, à pesquisa científica e ao ensino em psicologia.
+    Ministro disciplinas nas áreas de Psicopatologia, Psicofarmacologia,
+    Neuroanatomia, Análise do Comportamento e Avaliação Psicológica.
   </p>
+  <p>
+    Sou criador do podcast <strong>Entre Estímulos</strong>, um projeto de divulgação científica em psicologia
+    que surgiu como iniciativa paradidática para aproximar e otimizar a aprendizagem dos meus alunos.
+  </p>
+  <p>
+    <a href="https://lattes.cnpq.br/" target="_blank">Currículo Lattes</a>
+  </p>
+</section>
 
-  <div class="posts">
-    <div class="post">
-      <img src="https://via.placeholder.com/400x250" alt="">
-      <h3>Título do texto</h3>
-      <p>Resumo breve do conteúdo publicado.</p>
-    </div>
+<!-- BLOG -->
+<section class="light">
+  <h2>Divulgação científica</h2>
+
+  <div class="post">
+    <h3>Estimulação vagal e regulação do estresse</h3>
+
+    <p>
+      A estimulação do nervo vago tem sido estudada como estratégia auxiliar na regulação do estresse agudo,
+      especialmente por sua relação com o sistema nervoso parassimpático e o eixo hipotálamo-hipófise-adrenal (HPA).
+    </p>
+
+    <p>
+      Um dos protocolos mais simples investigados experimentalmente é o <em>Cold Face Test</em>,
+      que consiste na aplicação de estímulo frio na face para ativar reflexos trigêmino-vagais.
+    </p>
+
+    <p>
+      Evidências experimentais indicam que esse procedimento pode facilitar a recuperação fisiológica após estressores,
+      reduzindo a frequência cardíaca, aumentando índices de variabilidade da frequência cardíaca
+      e atenuando a resposta de cortisol.
+    </p>
+
+    <p>
+      O uso clínico dessa técnica deve ser sempre contextualizado, complementar e cuidadosamente orientado,
+      não sendo indicado como substituto de tratamento psicológico ou médico.
+    </p>
+
+    <p>
+      Referência principal:
+      Richer, R., Zenkner, J., Küderle, A., Rohleder, N., & Eskofier, B. M. (2022).
+      <em>Vagus activation by Cold Face Test reduces acute psychosocial stress responses</em>.
+      Scientific Reports, 12, 19270. https://doi.org/10.1038/s41598-022-23222-9
+    </p>
   </div>
 </section>
 
+<!-- CONTATO -->
 <footer>
   <h2>Contato</h2>
-  <a href="https://wa.me/5553991053796">WhatsApp: (53) 99105-3796</a>
-  <a href="mailto:cidpsiclin@gmail.com">E-mail: cidpsiclin@gmail.com</a>
-  <a href="#">Mini-site profissional</a>
-  <a href="https://lattes.cnpq.br/5072857995301252" target="_blank">Currículo Lattes</a>
+  <p>📞 WhatsApp: (53) 99105-3796</p>
+  <p>✉️ Email: cidpsiclin@gmail.com</p>
+  <p>
+    <a href="#">Mini-site profissional</a>
+  </p>
 </footer>
 
 </body>
