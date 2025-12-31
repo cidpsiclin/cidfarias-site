@@ -59,10 +59,8 @@ a:hover{ text-decoration:underline; }
 .hero{
   min-height:100vh;
   position:relative;
-  display:flex;
-  align-items:center;
-  justify-content:center;
   overflow:hidden;
+  background:#000;
 }
 
 .hero img{
@@ -71,37 +69,29 @@ a:hover{ text-decoration:underline; }
   object-fit:cover;
 }
 
-/* TEXTO DO HERO (CORRIGIDO) */
-.hero-content{
+/* TEXTO INFERIOR DO HERO */
+.hero-footer{
   position:absolute;
-  top:8%;
+  bottom:70px;
   left:50%;
   transform:translateX(-50%);
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  gap:16px;
-  z-index:2;
   text-align:center;
-  max-width:90%;
-}
-
-.hero-content h1{
-  font-size:2.4rem;
-  margin:0;
-}
-
-.hero-content p{
+  color:#f4f4f4;
   font-size:1.15rem;
-  opacity:0.9;
+  opacity:0.95;
+  z-index:2;
 }
 
 /* SETA */
 .scroll{
   position:absolute;
-  bottom:28px;
+  bottom:25px;
+  left:50%;
+  transform:translateX(-50%);
   font-size:2rem;
+  color:#f4f4f4;
   opacity:0.7;
+  z-index:2;
 }
 
 /* BLOG */
@@ -156,10 +146,9 @@ footer p{
 <!-- HERO -->
 <section class="hero dark">
   <img src="assets/hero-identidade.jpg" alt="Cid Pinheiro Psicólogo">
-  
-  <div class="hero-content">
-    <h1>Seja bem-vindo.</h1>
-    <p>Atendimento psicológico presencial e online.</p>
+
+  <div class="hero-footer">
+    Atendimento psicológico presencial e online.
   </div>
 
   <div class="scroll">⌄</div>
@@ -215,86 +204,6 @@ footer p{
     psicofarmacologia, análise do comportamento,
     epidemiologia genética e TDAH.
   </p>
-</section>
-
-<!-- ENSINO -->
-<section class="dark">
-  <h2>Ensino, ciência e divulgação</h2>
-
-  <p>
-    Ministro disciplinas nas áreas de Psicopatologia, Psicofarmacologia,
-    Neuroanatomia, Análise do Comportamento, Avaliação Psicológica
-    e temas relacionados à saúde mental baseada em evidências.
-  </p>
-
-  <p>
-    Sou criador do podcast <strong>Entre Estímulos</strong>,
-    um projeto de divulgação científica em psicologia que surgiu como
-    iniciativa paradidática para aproximar e otimizar a aprendizagem
-    dos meus alunos.
-  </p>
-
-  <p>
-    <a href="https://lattes.cnpq.br/" target="_blank">Currículo Lattes</a>
-  </p>
-</section>
-
-<!-- BLOG -->
-<section class="light">
-  <h2>Divulgação científica</h2>
-
-  <div class="post">
-    <h3>Estimulação vagal e regulação do estresse</h3>
-
-    <p>
-      A estimulação do nervo vago tem sido investigada como estratégia auxiliar
-      na regulação do estresse agudo, especialmente por sua relação com o
-      sistema nervoso parassimpático e com o eixo hipotálamo–hipófise–adrenal (HPA),
-      envolvido na liberação de cortisol frente a situações estressoras.
-    </p>
-
-    <p>
-      Estados de ansiedade aguda costumam envolver sintomas como taquicardia,
-      respiração superficial, tensão muscular, sensação de ameaça iminente,
-      inquietação e dificuldade de concentração. Esses sinais refletem a
-      predominância do sistema nervoso simpático.
-    </p>
-
-    <p>
-      Um protocolo simples estudado experimentalmente é o
-      <em>Cold Face Test</em>, que consiste na aplicação de estímulo frio
-      na região da face (principalmente bochechas e região periocular),
-      ativando reflexos trigêmino-vagais associados à resposta de mergulho.
-    </p>
-
-    <p>
-      O procedimento envolve: (1) exposição breve ao frio por cerca de 30 a 60 segundos,
-      (2) manutenção da respiração calma durante a aplicação e
-      (3) interrupção imediata caso haja desconforto intenso.
-      O objetivo é induzir uma resposta fisiológica parassimpática.
-    </p>
-
-    <p>
-      Estudos mostram que essa ativação vagal está associada à redução da frequência cardíaca,
-      aumento da variabilidade da frequência cardíaca e atenuação da resposta de cortisol
-      após estressores psicossociais, indicando maior capacidade de regulação autonômica.
-    </p>
-
-    <p>
-      Esses efeitos foram observados por meio de medidas fisiológicas objetivas,
-      como eletrocardiografia e dosagem de cortisol salivar,
-      demonstrando que a técnica produz efeitos mensuráveis
-      e não apenas subjetivos.
-    </p>
-
-    <p>
-      Referência:
-      Richer, R., Zenkner, J., Küderle, A., Rohleder, N., & Eskofier, B. M. (2022).
-      <em>Vagus activation by Cold Face Test reduces acute psychosocial stress responses</em>.
-      Scientific Reports, 12, 19270.
-      https://doi.org/10.1038/s41598-022-23222-9
-    </p>
-  </div>
 </section>
 
 <!-- CONTATO -->
