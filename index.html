@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Cid Pinheiro | Psicólogo</title>
 
 <style>
@@ -15,6 +15,10 @@
 }
 
 *{box-sizing:border-box}
+
+html{
+  scroll-behavior:smooth; /* rolagem suave ao clicar no menu */
+}
 
 body{
   margin:0;
@@ -50,7 +54,7 @@ a{
 a:hover{ text-decoration:underline; }
 
 /* =========================
-   HERO FULL-WIDE DEFINITIVO
+   HERO FULL-WIDE
    ========================= */
 .hero{
   height:100vh;
@@ -60,6 +64,38 @@ a:hover{ text-decoration:underline; }
   background-position:center;
   background-repeat:no-repeat;
   position:relative;
+}
+
+/* MENU NO TOPO (BRANCO) */
+.top-nav{
+  position:absolute;
+  top:26px;
+  left:50%;
+  transform:translateX(-50%);
+  width: min(1100px, 92%);
+  display:flex;
+  justify-content:center;
+  gap:18px;
+  flex-wrap:wrap;
+  padding:10px 14px;
+  border-radius:999px;
+  background: rgba(0,0,0,0.25);
+  backdrop-filter: blur(6px);
+}
+
+.top-nav a{
+  color:#fff;
+  font-weight:600;
+  font-size:0.95rem;
+  letter-spacing:0.2px;
+  padding:6px 10px;
+  border-radius:999px;
+  text-decoration:none;
+}
+
+.top-nav a:hover{
+  background: rgba(255,255,255,0.14);
+  text-decoration:none;
 }
 
 /* TEXTO INFERIOR */
@@ -73,7 +109,7 @@ a:hover{ text-decoration:underline; }
   text-align:center;
 }
 
-/* SETA */
+/* SETA (clicável) */
 .scroll{
   position:absolute;
   bottom:25px;
@@ -81,12 +117,93 @@ a:hover{ text-decoration:underline; }
   transform:translateX(-50%);
   font-size:2rem;
   color:#f4f4f4;
-  opacity:0.75;
+  opacity:0.80;
+  text-decoration:none;
+}
+.scroll:hover{ opacity:1; }
+
+/* PODCAST */
+.podcast-wrap{
+  display:flex;
+  gap:28px;
+  align-items:flex-start;
+  flex-wrap:wrap;
+}
+.podcast-cover{
+  width: min(320px, 100%);
+  border-radius:18px;
+  overflow:hidden;
+  box-shadow:0 18px 40px rgba(0,0,0,0.18);
+}
+.podcast-cover img{
+  width:100%;
+  display:block;
+}
+.podcast-text{
+  max-width:920px;
+}
+.podcast-actions{
+  margin-top:18px;
+  display:flex;
+  gap:14px;
+  flex-wrap:wrap;
 }
 
 /* BLOG */
-.post{
+.blog-grid{
+  display:grid;
+  grid-template-columns: 1fr;
+  gap:18px;
   max-width:920px;
+}
+
+.blog-card{
+  border:1px solid rgba(0,0,0,0.10);
+  border-radius:16px;
+  padding:20px 20px;
+  background:#fff;
+  box-shadow:0 10px 26px rgba(0,0,0,0.06);
+}
+
+.blog-title{
+  margin:0 0 10px 0;
+  font-size:1.15rem;
+}
+
+.blog-excerpt{
+  margin:0 0 14px 0;
+  color:#444;
+}
+
+.blog-toggle{
+  cursor:pointer;
+  background:transparent;
+  border:2px solid var(--accent);
+  color:#3a3a3a;
+  border-radius:999px;
+  padding:10px 16px;
+  font-weight:700;
+  transition:all .2s ease;
+}
+.blog-toggle:hover{
+  background:var(--accent);
+  color:#222;
+}
+
+/* efeito cortina */
+.blog-full{
+  overflow:hidden;
+  max-height:0;
+  transition:max-height .35s ease;
+  border-top:1px solid rgba(0,0,0,0.10);
+  margin-top:14px;
+  padding-top:0;
+}
+.blog-full.open{
+  padding-top:14px;
+}
+.blog-full p{
+  margin:0 0 12px 0;
 }
 
 /* FOOTER */
@@ -124,33 +241,47 @@ footer h2{ margin-bottom:30px; }
 <body>
 
 <!-- HERO -->
-<section class="hero">
+<section class="hero" id="topo">
+
+  <!-- MENU (âncoras) -->
+  <nav class="top-nav" aria-label="Navegação do site">
+    <a href="#quem-sou">Quem sou</a>
+    <a href="#abordagem">Abordagem clínica</a>
+    <a href="#atuacao">Público e áreas de atuação</a>
+    <a href="#contatos">Contatos</a>
+    <a href="#podcast">Podcast - Entre Estímulos</a>
+    <a href="#blog">Blog</a>
+  </nav>
+
   <div class="hero-footer">
     Atendimento psicológico presencial e online.
   </div>
-  <div class="scroll">⌄</div>
+
+  <a class="scroll" href="#quem-sou" aria-label="Ir para Quem sou">⌄</a>
 </section>
 
 <!-- QUEM SOU -->
-<section class="light">
+<section class="light" id="quem-sou">
   <h2>Quem sou</h2>
 
   <p>
     Sou psicólogo clínico e professor universitário. Atuo em Pelotas (RS),
-    integrando clínica, ensino e pesquisa. Sou mestre em Ciências da Saúde,
-    doutorando em Epidemiologia e coordenador do
+    integrando clínica e ensino. Sou mestre em Ciências da Saúde, com
+    <strong>especialização em Neuropsicologia Clínica</strong> e em
+    <strong>Análise do Comportamento Aplicada (ABA)</strong>, e coordenador do
     <strong>Laboratório de Ciência do Comportamento (LACICO – UFPEL)</strong>.
   </p>
 
   <p>
     Minha prática clínica é orientada pela
     <strong>Psicoterapia Analítico-Comportamental (TAC)</strong>,
-    fundamentada no behaviorismo radical e na psicologia científica contemporânea.
+    fundamentada no behaviorismo radical e na
+    <strong>psicologia contextual-comportamental</strong>.
   </p>
 </section>
 
 <!-- ABORDAGEM -->
-<section class="dark">
+<section class="dark" id="abordagem">
   <h2>Abordagem clínica</h2>
 
   <p>
@@ -166,7 +297,7 @@ footer h2{ margin-bottom:30px; }
 </section>
 
 <!-- ATUAÇÃO -->
-<section class="light">
+<section class="light" id="atuacao">
   <h2>Público e áreas de atuação</h2>
 
   <p>
@@ -182,18 +313,136 @@ footer h2{ margin-bottom:30px; }
   </p>
 </section>
 
+<!-- PODCAST -->
+<section class="dark" id="podcast">
+  <h2>Podcast – Entre Estímulos</h2>
+
+  <div class="podcast-wrap">
+    <div class="podcast-cover">
+      <!-- Troca o arquivo pela tua imagem real (ex: assets/podcast-entre-estimulos.jpg) -->
+      <img src="assets/podcast-capa.jpg" alt="Capa do podcast Entre Estímulos" />
+    </div>
+
+    <div class="podcast-text">
+      <p>
+        <strong>Entre Estímulos</strong> é um podcast elaborado pelo Prof. e Psicólogo
+        Cid Pinheiro com finalidade paradidática, de divulgação científica e psicoeducação.
+        Os episódios conectam psicologia, filosofia, antropologia e neurociência para discutir,
+        de forma clara e rigorosa, temas centrais da experiência humana.
+      </p>
+
+      <p>
+        Aqui você encontra <strong>resumos comentados de livros e artigos</strong>, além de
+        episódios com <strong>debates e propostas originais</strong> — sempre com foco em pensamento
+        crítico, bases científicas e linguagem acessível.
+      </p>
+
+      <div class="podcast-actions">
+        <!-- Coloca aqui o link real (Spotify, YouTube, etc.) -->
+        <a class="button" href="#" target="_blank" rel="noopener">Ouvir no Spotify</a>
+        <a class="button" href="#" target="_blank" rel="noopener">Ver no YouTube</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BLOG -->
+<section class="light" id="blog">
+  <h2>Blog</h2>
+
+  <div class="blog-grid">
+
+    <!-- POST 1 (exemplo) -->
+    <article class="blog-card">
+      <h3 class="blog-title">Título do post 1</h3>
+      <p class="blog-excerpt">Resumo curtíssimo do post 1 (2–3 linhas, só para situar o leitor).</p>
+
+      <button class="blog-toggle" type="button" data-target="post1">
+        Ler o texto completo
+      </button>
+
+      <div class="blog-full" id="post1">
+        <p><strong>Texto completo:</strong></p>
+        <p>
+          Aqui entra o conteúdo integral do post. Pode ser longo.
+          Você pode colocar vários parágrafos e o efeito cortina vai se ajustar.
+        </p>
+        <p>
+          Mais um parágrafo, etc.
+        </p>
+      </div>
+    </article>
+
+    <!-- POST 2 (exemplo) -->
+    <article class="blog-card">
+      <h3 class="blog-title">Título do post 2</h3>
+      <p class="blog-excerpt">Resumo curtíssimo do post 2 (2–3 linhas).</p>
+
+      <button class="blog-toggle" type="button" data-target="post2">
+        Ler o texto completo
+      </button>
+
+      <div class="blog-full" id="post2">
+        <p><strong>Texto completo:</strong></p>
+        <p>
+          Conteúdo integral do post 2.
+        </p>
+      </div>
+    </article>
+
+  </div>
+</section>
+
 <!-- CONTATO -->
-<footer>
+<footer id="contatos">
   <h2>Contato</h2>
 
   <p>📞 WhatsApp: (53) 99105-3796</p>
   <p>✉️ Email: cidpsiclin@gmail.com</p>
 
   <div class="footer-links">
-    <a class="button" href="#" target="_blank">Mini-site profissional</a>
-    <a class="button" href="https://instagram.com/" target="_blank">Instagram</a>
+    <a class="button" href="#" target="_blank" rel="noopener">Mini-site profissional</a>
+    <a class="button" href="https://instagram.com/" target="_blank" rel="noopener">Instagram</a>
   </div>
 </footer>
+
+<script>
+/* Blog: efeito cortina (abre/fecha) */
+function openCurtain(el){
+  el.classList.add("open");
+  el.style.maxHeight = el.scrollHeight + "px";
+}
+
+function closeCurtain(el){
+  el.classList.remove("open");
+  el.style.maxHeight = "0px";
+}
+
+document.querySelectorAll(".blog-toggle").forEach((btn) => {
+  btn.addEventListener("click", () => {
+    const id = btn.getAttribute("data-target");
+    const panel = document.getElementById(id);
+    if (!panel) return;
+
+    const isOpen = panel.style.maxHeight && panel.style.maxHeight !== "0px";
+
+    if (isOpen) {
+      closeCurtain(panel);
+      btn.textContent = "Ler o texto completo";
+    } else {
+      openCurtain(panel);
+      btn.textContent = "Fechar";
+    }
+  });
+});
+
+/* Ajusta altura se o usuário redimensionar a janela (evita corte estranho) */
+window.addEventListener("resize", () => {
+  document.querySelectorAll(".blog-full.open").forEach((panel) => {
+    panel.style.maxHeight = panel.scrollHeight + "px";
+  });
+});
+</script>
 
 </body>
 </html>
