@@ -6,17 +6,18 @@
 <title>Cid Pinheiro Farias | Psicólogo</title>
 
 <style>
-:root{
+:root {
   --dark:#3f3f3f;
   --light:#ffffff;
   --accent:#9fb37a;
   --text-dark:#222;
   --text-light:#f4f4f4;
+  --card-light:#ffffff;
+  --card-dark:rgba(255,255,255,0.08);
   --border-light:rgba(0,0,0,0.08);
   --border-dark:rgba(255,255,255,0.14);
 }
 
-/* RESET */
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{
@@ -36,7 +37,7 @@ section{scroll-margin-top:96px}
   left:50%;
   transform:translateX(-50%);
   z-index:999;
-  background:rgba(0,0,0,.78);
+  background:rgba(0,0,0,0.78);
   border-radius:999px;
   padding:10px 18px;
 }
@@ -48,9 +49,9 @@ section{scroll-margin-top:96px}
   padding:8px 10px;
   border-radius:999px;
 }
-.navbar a:hover{background:rgba(255,255,255,.12)}
+.navbar a:hover{background:rgba(255,255,255,0.12)}
 
-/* HERO (congelado) */
+/* HERO */
 .hero{
   height:100vh;
   background:url("assets/hero-identidade.jpg") center/cover no-repeat;
@@ -59,7 +60,6 @@ section{scroll-margin-top:96px}
   justify-content:center;
   padding:0 8% 44px;
   text-align:center;
-  position:relative;
 }
 .hero-text{color:#fff;font-size:1.1rem}
 .hero-arrow{
@@ -73,49 +73,38 @@ section{scroll-margin-top:96px}
   padding:10px 14px;
   border-radius:999px;
 }
-.hero-arrow:hover{background:rgba(0,0,0,.22)}
+.hero-arrow:hover{background:rgba(0,0,0,0.22)}
 
 /* SECTIONS */
-section{
-  padding:110px 8%;
-  position:relative;
-}
+section{padding:110px 8%}
+.light{background:var(--light);color:var(--text-dark)}
+.dark{background:var(--dark);color:var(--text-light)}
+h2{margin:0 0 28px;font-size:2rem}
+p{max-width:980px;font-size:1.05rem;margin:0 0 16px}
 
-/* LIGHT SECTIONS — agora com BG em marca-d’água */
-.light{
-  background:var(--light);
-  color:var(--text-dark);
-  overflow:hidden;
-}
-.light::before{
+/* PODCAST */
+#podcast{position:relative;overflow:hidden}
+#podcast::before{
   content:"";
   position:absolute;
   inset:0;
   background:url("assets/podcast-bg.png") repeat center;
   background-size:560px auto;
-  opacity:.06; /* marca-d’água suave */
-  pointer-events:none;
+  opacity:.08;
 }
-.light > *{
-  position:relative;
-  z-index:1;
-}
-
-/* DARK SECTIONS (inalteradas) */
-.dark{
-  background:var(--dark);
-  color:var(--text-light);
+#podcast .wrap{position:relative;z-index:1}
+.podcast-grid{display:flex;gap:34px;flex-wrap:wrap}
+.podcast-cover{
+  width:320px;height:320px;border-radius:18px;
+  background:url("assets/podcast-capa.jpg") center/cover no-repeat;
+  box-shadow:0 18px 40px rgba(0,0,0,.25);
 }
 
-h2{margin:0 0 28px;font-size:2rem}
-p{max-width:980px;font-size:1.05rem;margin:0 0 16px}
-
-/* PODCAST — permanece igual */
-#podcast::before{
-  opacity:.08; /* podcast um pouco mais forte */
-}
+/* BLOG (inalterado) */
+.blog-grid{max-width:980px;display:grid;gap:26px}
 
 /* CONTACT */
+.contact-grid{max-width:980px}
 .contact-buttons{
   display:flex;
   gap:18px;
@@ -133,11 +122,15 @@ p{max-width:980px;font-size:1.05rem;margin:0 0 16px}
   text-decoration:none;
   font-weight:700;
 }
-.contact-btn:hover{background:rgba(159,179,122,.15)}
+.contact-btn:hover{
+  background:rgba(159,179,122,0.15);
+}
 
 /* MOBILE */
 @media (max-width:900px){
   section{padding:92px 6%}
+  .navbar{top:12px}
+  .podcast-cover{width:100%;height:240px}
 }
 @media (max-width:640px){
   .navbar{display:none}
@@ -170,25 +163,42 @@ p{max-width:980px;font-size:1.05rem;margin:0 0 16px}
 
 <section class="dark" id="abordagem-clinica">
   <h2>Abordagem clínica</h2>
-  <p>Minha prática clínica é fundamentada na Análise do Comportamento e no behaviorismo radical.</p>
+  <p>Minha prática clínica é fundamentada na Análise do Comportamento e no behaviorismo radical, com ênfase em análise funcional.</p>
 </section>
 
 <section class="light" id="podcast">
-  <h2>Podcast — Entre Estímulos</h2>
-  <p>Podcast de divulgação científica e psicoeducação.</p>
+  <div class="wrap">
+    <h2>Podcast — Entre Estímulos</h2>
+    <div class="podcast-grid">
+      <div class="podcast-cover"></div>
+      <p>Podcast de divulgação científica e psicoeducação, articulando psicologia, filosofia, antropologia e neurociência.</p>
+    </div>
+  </div>
 </section>
 
 <section class="dark" id="blog">
   <h2>Blog</h2>
-  <p>Os textos serão disponibilizados em PDF.</p>
+  <p>Em breve: textos completos em PDF para leitura.</p>
 </section>
 
 <section class="light" id="contato">
   <h2>Contato</h2>
-  <div class="contact-buttons">
-    <a class="contact-btn" href="https://wa.me/5553991053796" target="_blank">WhatsApp</a>
-    <a class="contact-btn" href="mailto:cidpsiclin@gmail.com">Email</a>
-    <a class="contact-btn" href="https://instagram.com/cidpsiclin" target="_blank">Instagram</a>
+
+  <div class="contact-grid">
+    <p><strong>Psicólogo</strong> • CRP 07/44893</p>
+
+    <div class="contact-buttons">
+      <a class="contact-btn"
+         href="https://wa.me/5553991053796"
+         target="_blank">WhatsApp</a>
+
+      <a class="contact-btn"
+         href="mailto:cidpsiclin@gmail.com">Email</a>
+
+      <a class="contact-btn"
+         href="https://instagram.com/cidpsiclin"
+         target="_blank">Instagram</a>
+    </div>
   </div>
 </section>
 
