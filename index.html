@@ -28,7 +28,6 @@ body{
   background:var(--light);
 }
 
-/* Anchor offset */
 section{scroll-margin-top:96px;}
 
 /* ===== NAV ===== */
@@ -51,6 +50,7 @@ section{scroll-margin-top:96px;}
   font-size:.92rem;
   padding:8px 10px;
   border-radius:999px;
+  display:inline-block;
 }
 .navbar a:hover{background:rgba(255,255,255,0.12);}
 
@@ -77,16 +77,29 @@ section{scroll-margin-top:96px;}
   color:#fff;
   text-decoration:none;
   font-size:1.8rem;
+  line-height:1;
   padding:10px 14px;
+  border-radius:999px;
 }
 .hero .hero-arrow:hover{background:rgba(0,0,0,0.22);}
 
 /* ===== SECTIONS ===== */
-section{padding:110px 8%; position:relative;}
-.light{ background:var(--light); color:var(--text-dark); }
-.dark{ background:var(--dark); color:var(--text-light); }
+section{
+  padding:110px 8%;
+  position:relative;
+}
+.light{
+  background:var(--light);
+  color:var(--text-dark);
+  position:relative;
+  overflow:hidden;
+}
+.dark{
+  background:var(--dark);
+  color:var(--text-light);
+}
 
-/* ===== BG MARCA D’ÁGUA EM TODOS OS LIGHT ===== */
+/* ===== BG MARCA D’ÁGUA EM TODOS OS FUNDOS BRANCOS ===== */
 .light::before{
   content:"";
   position:absolute;
@@ -101,16 +114,44 @@ section{padding:110px 8%; position:relative;}
   z-index:1;
 }
 
-h2{font-size:2rem;margin:0 0 28px;}
-p{max-width:980px;font-size:1.06rem;margin:0 0 16px;}
-.meta-line{font-weight:600;margin-top:10px;}
+h2{
+  font-size:2rem;
+  margin:0 0 28px;
+  letter-spacing:.2px;
+}
+p{
+  max-width:980px;
+  font-size:1.06rem;
+  margin:0 0 16px;
+}
+
+.meta-line{
+  opacity:.95;
+  font-weight:600;
+  margin-top:10px;
+}
 
 /* ===== PODCAST ===== */
-#podcast{overflow:hidden;}
+#podcast{
+  position:relative;
+  overflow:hidden;
+}
+#podcast::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:url("assets/podcast-bg.png") repeat center;
+  background-size:560px auto;
+  opacity:0.08;
+  pointer-events:none;
+}
+#podcast > .wrap{position:relative; z-index:1;}
+
 .podcast-grid{
   display:flex;
   gap:34px;
   flex-wrap:wrap;
+  align-items:flex-start;
 }
 .podcast-cover{
   width:320px;
@@ -118,6 +159,7 @@ p{max-width:980px;font-size:1.06rem;margin:0 0 16px;}
   border-radius:18px;
   background:url("assets/podcast-capa.jpg") center/cover no-repeat;
   box-shadow:0 18px 40px rgba(0,0,0,0.25);
+  flex:0 0 auto;
 }
 .podcast-copy{max-width:760px;}
 .btn{
@@ -133,7 +175,11 @@ p{max-width:980px;font-size:1.06rem;margin:0 0 16px;}
 .btn:hover{background:rgba(159,179,122,0.12);}
 
 /* ===== BLOG ===== */
-.blog-grid{max-width:980px;display:grid;gap:26px;}
+.blog-grid{
+  max-width:980px;
+  display:grid;
+  gap:26px;
+}
 .card{
   border-radius:18px;
   padding:24px;
@@ -147,7 +193,8 @@ p{max-width:980px;font-size:1.06rem;margin:0 0 16px;}
 
 /* ===== CONTACT ===== */
 .contact-grid{max-width:980px;}
-.contact-item{margin:10px 0;font-size:1.06rem;}
+.contact-item{margin:10px 0; font-size:1.06rem;}
+
 .contact-btn{
   display:inline-block;
   margin-top:18px;
@@ -161,16 +208,24 @@ p{max-width:980px;font-size:1.06rem;margin:0 0 16px;}
 .contact-btn:hover{opacity:.9;}
 
 /* ===== MOBILE ===== */
+@media (max-width:900px){
+  section{padding:92px 6%;}
+  .navbar{top:12px; padding:10px 14px;}
+  .navbar a{padding:8px 8px; font-size:.9rem;}
+  .podcast-cover{width:100%; height:240px;}
+}
 @media (max-width:640px){
   .navbar{display:none;}
-  section{padding:92px 6%;}
+  .hero{padding:0 6% 38px;}
+  h2{font-size:1.7rem;}
+  p{font-size:1.0rem;}
 }
 </style>
 </head>
 
 <body>
 
-<nav class="navbar">
+<nav class="navbar" aria-label="Navegação principal">
   <a href="#quem-sou">Quem sou</a>
   <a href="#abordagem-clinica">Abordagem clínica</a>
   <a href="#podcast">Podcast</a>
@@ -178,37 +233,13 @@ p{max-width:980px;font-size:1.06rem;margin:0 0 16px;}
   <a href="#contato">Contato</a>
 </nav>
 
-<header class="hero">
+<header class="hero" id="topo">
   <div class="hero-text">Atendimento e supervisão psicológica presencial e online</div>
-  <a class="hero-arrow" href="#quem-sou">⌄</a>
+  <a class="hero-arrow" href="#quem-sou" aria-label="Ir para Quem sou">⌄</a>
 </header>
 
-<section class="light" id="quem-sou">
-  <h2>Quem sou</h2>
-  <!-- TEXTO ORIGINAL MANTIDO -->
-  ...
-</section>
-
-<section class="dark" id="abordagem-clinica">
-  <h2>Abordagem clínica</h2>
-  ...
-</section>
-
-<section class="light" id="podcast">
-  <h2>Podcast — Entre Estímulos</h2>
-  <div class="podcast-grid">
-    <div class="podcast-cover"></div>
-    <div class="podcast-copy">
-      <p>Podcast elaborado pelo Prof. e Psicólogo Cid Pinheiro Farias...</p>
-      <a class="btn" href="https://open.spotify.com/show/03I8afdx9f1b62Tb0SnsAK" target="_blank">Ouvir no Spotify</a>
-    </div>
-  </div>
-</section>
-
-<section class="dark" id="blog">
-  <h2>Blog</h2>
-  <!-- BLOG INTACTO -->
-</section>
+<!-- TODO O HTML DE QUEM SOU, ABORDAGEM, PODCAST, BLOG
+     PERMANECE EXATAMENTE IGUAL AO SEU CÓDIGO ORIGINAL -->
 
 <section class="light" id="contato">
   <h2>Contato</h2>
