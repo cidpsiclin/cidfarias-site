@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Cid Pinheiro | Psicólogo</title>
 
 <style>
@@ -16,9 +16,7 @@
 
 *{box-sizing:border-box}
 
-html{
-  scroll-behavior:smooth; /* rolagem suave ao clicar no menu */
-}
+html{scroll-behavior:smooth}
 
 body{
   margin:0;
@@ -27,89 +25,52 @@ body{
   color:var(--text-dark);
 }
 
-/* SECTIONS */
-section{
-  padding:110px 8%;
-}
+/* ================= SEÇÕES ================= */
+section{padding:110px 8%}
+.light{background:var(--light)}
+.dark{background:var(--dark);color:var(--text-light)}
 
-.light{ background:var(--light); }
-.dark{ background:var(--dark); color:var(--text-light); }
+h2,h3{font-weight:600;margin-bottom:28px}
+p{font-size:1.15rem;max-width:920px}
 
-h2,h3{
-  font-weight:600;
-  margin-bottom:28px;
-}
-
-p{
-  font-size:1.15rem;
-  max-width:920px;
-}
-
-/* LINKS */
-a{
-  color:var(--accent);
-  text-decoration:none;
-  font-weight:600;
-}
-a:hover{ text-decoration:underline; }
-
-/* =========================
-   HERO FULL-WIDE
-   ========================= */
+/* ================= HERO ================= */
 .hero{
   height:100vh;
-  width:100vw;
   background-image:url("assets/hero-identidade.jpg");
   background-size:cover;
   background-position:center;
-  background-repeat:no-repeat;
   position:relative;
 }
 
-/* MENU NO TOPO (BRANCO) */
 .top-nav{
   position:absolute;
   top:26px;
   left:50%;
   transform:translateX(-50%);
-  width: min(1100px, 92%);
   display:flex;
-  justify-content:center;
   gap:18px;
   flex-wrap:wrap;
-  padding:10px 14px;
+  padding:10px 16px;
   border-radius:999px;
-  background: rgba(0,0,0,0.25);
-  backdrop-filter: blur(6px);
+  background:rgba(0,0,0,0.25);
+  backdrop-filter:blur(6px);
 }
 
 .top-nav a{
   color:#fff;
   font-weight:600;
   font-size:0.95rem;
-  letter-spacing:0.2px;
-  padding:6px 10px;
-  border-radius:999px;
   text-decoration:none;
 }
 
-.top-nav a:hover{
-  background: rgba(255,255,255,0.14);
-  text-decoration:none;
-}
-
-/* TEXTO INFERIOR */
 .hero-footer{
   position:absolute;
   bottom:70px;
   left:50%;
   transform:translateX(-50%);
   color:#f4f4f4;
-  font-size:1.15rem;
-  text-align:center;
 }
 
-/* SETA (clicável) */
 .scroll{
   position:absolute;
   bottom:25px;
@@ -117,109 +78,40 @@ a:hover{ text-decoration:underline; }
   transform:translateX(-50%);
   font-size:2rem;
   color:#f4f4f4;
-  opacity:0.80;
   text-decoration:none;
 }
-.scroll:hover{ opacity:1; }
 
-/* PODCAST */
+/* ================= PODCAST ================= */
+#podcast{position:relative;overflow:hidden}
+
+#podcast::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background-image:url("assets/podcast-bg.png");
+  background-repeat:repeat;
+  background-size:520px auto;
+  opacity:0.08;
+  pointer-events:none;
+}
+
+#podcast>*{position:relative;z-index:1}
+
 .podcast-wrap{
   display:flex;
-  gap:28px;
+  gap:32px;
   align-items:flex-start;
   flex-wrap:wrap;
 }
+
 .podcast-cover{
-  width: min(320px, 100%);
+  width:320px;
+  height:320px;
   border-radius:18px;
-  overflow:hidden;
-  box-shadow:0 18px 40px rgba(0,0,0,0.18);
-}
-.podcast-cover img{
-  width:100%;
-  display:block;
-}
-.podcast-text{
-  max-width:920px;
-}
-.podcast-actions{
-  margin-top:18px;
-  display:flex;
-  gap:14px;
-  flex-wrap:wrap;
-}
-
-/* BLOG */
-.blog-grid{
-  display:grid;
-  grid-template-columns: 1fr;
-  gap:18px;
-  max-width:920px;
-}
-
-.blog-card{
-  border:1px solid rgba(0,0,0,0.10);
-  border-radius:16px;
-  padding:20px 20px;
-  background:#fff;
-  box-shadow:0 10px 26px rgba(0,0,0,0.06);
-}
-
-.blog-title{
-  margin:0 0 10px 0;
-  font-size:1.15rem;
-}
-
-.blog-excerpt{
-  margin:0 0 14px 0;
-  color:#444;
-}
-
-.blog-toggle{
-  cursor:pointer;
-  background:transparent;
-  border:2px solid var(--accent);
-  color:#3a3a3a;
-  border-radius:999px;
-  padding:10px 16px;
-  font-weight:700;
-  transition:all .2s ease;
-}
-.blog-toggle:hover{
-  background:var(--accent);
-  color:#222;
-}
-
-/* efeito cortina */
-.blog-full{
-  overflow:hidden;
-  max-height:0;
-  transition:max-height .35s ease;
-  border-top:1px solid rgba(0,0,0,0.10);
-  margin-top:14px;
-  padding-top:0;
-}
-.blog-full.open{
-  padding-top:14px;
-}
-.blog-full p{
-  margin:0 0 12px 0;
-}
-
-/* FOOTER */
-footer{
-  background:#222;
-  color:#ddd;
-  padding:90px 8%;
-}
-
-footer h2{ margin-bottom:30px; }
-
-.footer-links{
-  margin-top:30px;
-  display:flex;
-  gap:30px;
-  flex-wrap:wrap;
+  background-image:url("assets/podcast-capa.jpg");
+  background-size:cover;
+  background-position:center;
+  box-shadow:0 18px 40px rgba(0,0,0,0.25);
 }
 
 .button{
@@ -228,28 +120,80 @@ footer h2{ margin-bottom:30px; }
   border:2px solid var(--accent);
   color:var(--accent);
   border-radius:40px;
-  transition:all .25s ease;
+  text-decoration:none;
+  font-weight:600;
+  margin-top:16px;
 }
 
-.button:hover{
-  background:var(--accent);
-  color:#222;
+/* ================= BLOG ================= */
+.blog-grid{
+  max-width:920px;
+  display:grid;
+  gap:20px;
+}
+
+.blog-card{
+  background:#fff;
+  border-radius:16px;
+  padding:22px;
+  box-shadow:0 10px 26px rgba(0,0,0,0.08);
+}
+
+.blog-toggle{
+  background:none;
+  border:2px solid var(--accent);
+  border-radius:999px;
+  padding:10px 18px;
+  cursor:pointer;
+  font-weight:600;
+}
+
+.blog-full{
+  max-height:0;
+  overflow:hidden;
+  transition:max-height .35s ease;
+}
+
+.blog-full.open{margin-top:16px}
+
+/* ================= FOOTER ================= */
+footer{
+  background:#222;
+  color:#ddd;
+  padding:90px 8%;
+}
+
+/* ================= RESPONSIVO ================= */
+@media (max-width: 768px){
+
+  section{padding:80px 6%}
+
+  .hero{height:90vh}
+
+  .podcast-wrap{flex-direction:column}
+
+  .podcast-cover{
+    width:100%;
+    height:260px;
+  }
+
+  .top-nav{
+    gap:10px;
+    font-size:0.85rem;
+  }
 }
 </style>
 </head>
 
 <body>
 
-<!-- HERO -->
 <section class="hero" id="topo">
-
-  <!-- MENU (âncoras) -->
-  <nav class="top-nav" aria-label="Navegação do site">
+  <nav class="top-nav">
     <a href="#quem-sou">Quem sou</a>
     <a href="#abordagem">Abordagem clínica</a>
-    <a href="#atuacao">Público e áreas de atuação</a>
+    <a href="#atuacao">Público e áreas</a>
     <a href="#contatos">Contatos</a>
-    <a href="#podcast">Podcast - Entre Estímulos</a>
+    <a href="#podcast">Podcast</a>
     <a href="#blog">Blog</a>
   </nav>
 
@@ -257,189 +201,91 @@ footer h2{ margin-bottom:30px; }
     Atendimento psicológico presencial e online.
   </div>
 
-  <a class="scroll" href="#quem-sou" aria-label="Ir para Quem sou">⌄</a>
+  <a class="scroll" href="#quem-sou">⌄</a>
 </section>
 
-<!-- QUEM SOU -->
 <section class="light" id="quem-sou">
   <h2>Quem sou</h2>
-
   <p>
-    Sou psicólogo clínico e professor universitário. Atuo em Pelotas (RS),
-    integrando clínica e ensino. Sou mestre em Ciências da Saúde, com
-    <strong>especialização em Neuropsicologia Clínica</strong> e em
-    <strong>Análise do Comportamento Aplicada (ABA)</strong>, e coordenador do
-    <strong>Laboratório de Ciência do Comportamento (LACICO – UFPEL)</strong>.
+    Sou psicólogo clínico e professor universitário. Mestre em Ciências da Saúde,
+    com especialização em <strong>Neuropsicologia Clínica</strong> e em
+    <strong>Análise do Comportamento Aplicada (ABA)</strong>.
   </p>
-
   <p>
-    Minha prática clínica é orientada pela
-    <strong>Psicoterapia Analítico-Comportamental (TAC)</strong>,
+    Minha prática é orientada pela Psicoterapia Analítico-Comportamental,
     fundamentada no behaviorismo radical e na
     <strong>psicologia contextual-comportamental</strong>.
   </p>
 </section>
 
-<!-- ABORDAGEM -->
 <section class="dark" id="abordagem">
   <h2>Abordagem clínica</h2>
-
   <p>
-    O foco do processo terapêutico não está em rótulos diagnósticos,
-    mas na história única de aprendizagem de cada pessoa
-    e na forma como ela se relaciona com seu contexto atual.
-  </p>
-
-  <p>
-    Diagnósticos são utilizados como ferramentas clínicas e descritivas,
-    nunca como definições identitárias.
+    O foco terapêutico está na análise funcional da história de aprendizagem e
+    nas contingências que mantêm o sofrimento psicológico no presente.
   </p>
 </section>
 
-<!-- ATUAÇÃO -->
 <section class="light" id="atuacao">
   <h2>Público e áreas de atuação</h2>
-
   <p>
-    Atendo adolescentes, adultos e idosos em demandas relacionadas a
-    transtornos de ansiedade, transtornos do humor, transtorno bipolar,
-    transtornos de personalidade e TDAH.
-  </p>
-
-  <p>
-    Atuo também nas áreas de saúde cognitiva do idoso,
-    psicofarmacologia, análise do comportamento
-    e epidemiologia genética.
+    Atendo adolescentes, adultos e idosos em demandas relacionadas a ansiedade,
+    transtornos do humor, TDAH e transtornos de personalidade.
   </p>
 </section>
 
-<!-- PODCAST -->
 <section class="dark" id="podcast">
   <h2>Podcast – Entre Estímulos</h2>
 
   <div class="podcast-wrap">
-    <div class="podcast-cover">
-      <!-- Troca o arquivo pela tua imagem real (ex: assets/podcast-entre-estimulos.jpg) -->
-      <img src="assets/podcast-capa.jpg" alt="Capa do podcast Entre Estímulos" />
-    </div>
+    <div class="podcast-cover"></div>
 
-    <div class="podcast-text">
+    <div>
       <p>
-        <strong>Entre Estímulos</strong> é um podcast elaborado pelo Prof. e Psicólogo
-        Cid Pinheiro com finalidade paradidática, de divulgação científica e psicoeducação.
-        Os episódios conectam psicologia, filosofia, antropologia e neurociência para discutir,
-        de forma clara e rigorosa, temas centrais da experiência humana.
+        Podcast elaborado pelo Prof. e Psicólogo Cid Pinheiro com finalidade
+        paradidática, de divulgação científica e psicoeducação. Os episódios
+        articulam psicologia, filosofia, antropologia e neurociência, com
+        resumos de livros, artigos e discussões originais.
       </p>
 
-      <p>
-        Aqui você encontra <strong>resumos comentados de livros e artigos</strong>, além de
-        episódios com <strong>debates e propostas originais</strong> — sempre com foco em pensamento
-        crítico, bases científicas e linguagem acessível.
-      </p>
-
-      <div class="podcast-actions">
-        <!-- Coloca aqui o link real (Spotify, YouTube, etc.) -->
-        <a class="button" href="#" target="_blank" rel="noopener">Ouvir no Spotify</a>
-        <a class="button" href="#" target="_blank" rel="noopener">Ver no YouTube</a>
-      </div>
+      <a class="button"
+         href="https://open.spotify.com/show/03I8afdx9f1b62Tb0SnsAK"
+         target="_blank" rel="noopener">
+        Ouvir no Spotify
+      </a>
     </div>
   </div>
 </section>
 
-<!-- BLOG -->
 <section class="light" id="blog">
   <h2>Blog</h2>
 
   <div class="blog-grid">
-
-    <!-- POST 1 (exemplo) -->
-    <article class="blog-card">
-      <h3 class="blog-title">Título do post 1</h3>
-      <p class="blog-excerpt">Resumo curtíssimo do post 1 (2–3 linhas, só para situar o leitor).</p>
-
-      <button class="blog-toggle" type="button" data-target="post1">
-        Ler o texto completo
-      </button>
-
-      <div class="blog-full" id="post1">
-        <p><strong>Texto completo:</strong></p>
-        <p>
-          Aqui entra o conteúdo integral do post. Pode ser longo.
-          Você pode colocar vários parágrafos e o efeito cortina vai se ajustar.
-        </p>
-        <p>
-          Mais um parágrafo, etc.
-        </p>
+    <div class="blog-card">
+      <h3>Título do post</h3>
+      <p>Resumo breve do texto.</p>
+      <button class="blog-toggle">Ler texto completo</button>
+      <div class="blog-full">
+        <p>Texto completo do post.</p>
       </div>
-    </article>
-
-    <!-- POST 2 (exemplo) -->
-    <article class="blog-card">
-      <h3 class="blog-title">Título do post 2</h3>
-      <p class="blog-excerpt">Resumo curtíssimo do post 2 (2–3 linhas).</p>
-
-      <button class="blog-toggle" type="button" data-target="post2">
-        Ler o texto completo
-      </button>
-
-      <div class="blog-full" id="post2">
-        <p><strong>Texto completo:</strong></p>
-        <p>
-          Conteúdo integral do post 2.
-        </p>
-      </div>
-    </article>
-
+    </div>
   </div>
 </section>
 
-<!-- CONTATO -->
 <footer id="contatos">
   <h2>Contato</h2>
-
-  <p>📞 WhatsApp: (53) 99105-3796</p>
-  <p>✉️ Email: cidpsiclin@gmail.com</p>
-
-  <div class="footer-links">
-    <a class="button" href="#" target="_blank" rel="noopener">Mini-site profissional</a>
-    <a class="button" href="https://instagram.com/" target="_blank" rel="noopener">Instagram</a>
-  </div>
+  <p>WhatsApp: (53) 99105-3796</p>
+  <p>Email: cidpsiclin@gmail.com</p>
 </footer>
 
 <script>
-/* Blog: efeito cortina (abre/fecha) */
-function openCurtain(el){
-  el.classList.add("open");
-  el.style.maxHeight = el.scrollHeight + "px";
-}
-
-function closeCurtain(el){
-  el.classList.remove("open");
-  el.style.maxHeight = "0px";
-}
-
-document.querySelectorAll(".blog-toggle").forEach((btn) => {
-  btn.addEventListener("click", () => {
-    const id = btn.getAttribute("data-target");
-    const panel = document.getElementById(id);
-    if (!panel) return;
-
-    const isOpen = panel.style.maxHeight && panel.style.maxHeight !== "0px";
-
-    if (isOpen) {
-      closeCurtain(panel);
-      btn.textContent = "Ler o texto completo";
-    } else {
-      openCurtain(panel);
-      btn.textContent = "Fechar";
-    }
-  });
-});
-
-/* Ajusta altura se o usuário redimensionar a janela (evita corte estranho) */
-window.addEventListener("resize", () => {
-  document.querySelectorAll(".blog-full.open").forEach((panel) => {
-    panel.style.maxHeight = panel.scrollHeight + "px";
+document.querySelectorAll(".blog-toggle").forEach(btn=>{
+  btn.addEventListener("click",()=>{
+    const content=btn.nextElementSibling;
+    content.classList.toggle("open");
+    content.style.maxHeight = content.classList.contains("open")
+      ? content.scrollHeight+"px"
+      : "0";
   });
 });
 </script>
