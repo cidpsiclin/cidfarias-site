@@ -12,32 +12,16 @@
   --accent:#9fb37a;
   --text-dark:#222;
   --text-light:#f4f4f4;
-  --card:#f8f8f8;
+  --card:#f7f7f7;
 }
 
-*{box-sizing:border-box}
+/* RESET */
+*{box-sizing:border-box;margin:0;padding:0}
 
 body{
-  margin:0;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   line-height:1.8;
   color:var(--text-dark);
-}
-
-/* HERO */
-.hero{
-  height:100vh;
-  background:url("assets/hero-identidade.jpg") center/cover no-repeat;
-  display:flex;
-  align-items:flex-end;
-  justify-content:center;
-  padding-bottom:40px;
-}
-
-.hero p{
-  color:white;
-  font-size:1.1rem;
-  letter-spacing:.5px;
 }
 
 /* NAV */
@@ -46,51 +30,88 @@ nav{
   top:20px;
   left:50%;
   transform:translateX(-50%);
-  background:rgba(0,0,0,.75);
-  padding:12px 22px;
+  background:rgba(0,0,0,.8);
+  padding:12px 26px;
   border-radius:30px;
-  z-index:10;
+  z-index:100;
 }
 
 nav a{
   color:white;
-  margin:0 12px;
+  text-decoration:none;
+  margin:0 14px;
   font-size:.9rem;
+}
+
+/* HERO */
+.hero{
+  height:100vh;
+  background:url("assets/hero-identidade.jpg") center/cover no-repeat;
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-end;
+  align-items:center;
+  padding-bottom:40px;
+}
+
+.hero p{
+  color:white;
+  font-size:1.1rem;
+}
+
+.hero .arrow{
+  margin-top:20px;
+  font-size:1.6rem;
+  color:white;
   text-decoration:none;
 }
 
 /* SECTIONS */
 section{
-  padding:90px 8%;
+  padding:100px 8%;
 }
 
-h2{
-  margin-bottom:30px;
+section.light{background:var(--light)}
+section.dark{background:var(--dark);color:var(--text-light)}
+
+h2{margin-bottom:28px}
+p{max-width:900px;margin-bottom:16px}
+
+/* PODCAST */
+.podcast-box{
+  display:flex;
+  gap:40px;
+  align-items:center;
+  flex-wrap:wrap;
 }
 
-p{
-  max-width:900px;
+.podcast-box img{
+  max-width:260px;
+  border-radius:12px;
+}
+
+.podcast-box a{
+  color:var(--accent);
+  text-decoration:none;
+  font-weight:600;
 }
 
 /* BLOG */
 .blog-container{
   display:flex;
   flex-direction:column;
-  gap:30px;
+  gap:32px;
 }
 
 .blog-card{
   background:var(--card);
-  border-radius:14px;
-  padding:28px;
+  padding:30px;
+  border-radius:16px;
 }
 
-.blog-card h3{
-  margin-top:0;
-}
+.blog-card h3{margin-bottom:10px}
 
 .blog-toggle{
-  margin-top:15px;
   background:none;
   border:none;
   color:var(--accent);
@@ -103,130 +124,141 @@ p{
   margin-top:25px;
 }
 
-.blog-full.active{
-  display:block;
-}
+.blog-full.active{display:block}
+
+/* CONTACT */
+.contact p{margin-bottom:8px}
 
 /* MOBILE */
 @media (max-width:768px){
-  section{padding:70px 6%}
   nav{display:none}
+  section{padding:80px 6%}
+  .podcast-box{flex-direction:column;text-align:center}
 }
 </style>
 </head>
 
 <body>
 
-<!-- HERO -->
-<div class="hero">
-  <p>Atendimento psicológico presencial e online</p>
-</div>
-
-<!-- NAV -->
 <nav>
   <a href="#quem">Quem sou</a>
   <a href="#abordagem">Abordagem clínica</a>
   <a href="#podcast">Podcast</a>
   <a href="#blog">Blog</a>
+  <a href="#contato">Contato</a>
 </nav>
 
+<!-- HERO -->
+<div class="hero">
+  <p>Atendimento e supervisão psicológica presencial e online</p>
+  <a href="#quem" class="arrow">⌄</a>
+</div>
+
 <!-- QUEM SOU -->
-<section id="quem">
+<section class="light" id="quem">
 <h2>Quem sou</h2>
 <p>
-Sou psicólogo clínico e professor, com formação marcada pela integração entre ciência, prática clínica e ensino. Atuo há anos no ensino superior, ministrando disciplinas como Psicopatologia, Neuroanatomofisiologia, Análise do Comportamento, Processos Psicológicos Básicos, Métodos Quantitativos e Avaliação Psicológica, principalmente na graduação em Psicologia, mas também em cursos como Educação Física e Administração.
+Sou psicólogo clínico e professor, com atuação no ensino superior em cursos de Psicologia,
+Educação Física e Administração. Lecionei disciplinas como Psicopatologia, Neuroanatomofisiologia,
+Análise do Comportamento, Processos Psicológicos Básicos, Avaliação Psicológica e Métodos Quantitativos.
 </p>
 <p>
-Minha trajetória acadêmica inclui atuação em pesquisa nas áreas de epidemiologia, neurociência e psicofarmacologia, com participação em projetos de investigação clínica e populacional, orientação e coorientação de trabalhos acadêmicos e produção científica. Paralelamente, desenvolvo atividades de divulgação científica por meio do podcast <strong>Entre Estímulos</strong>, voltado à Psicologia, e do <strong>Ghost Lineage</strong>, dedicado à biologia e evolução.
+Minha trajetória acadêmica envolve pesquisa em epidemiologia, neurociência e psicofarmacologia,
+com produção científica, coorientação de TCCs e atuação em divulgação científica por meio dos
+podcasts <strong>Entre Estímulos</strong> e <strong>Ghost Lineage</strong>.
 </p>
 </section>
 
 <!-- ABORDAGEM -->
-<section id="abordagem">
+<section class="dark" id="abordagem">
 <h2>Abordagem clínica</h2>
 <p>
-Minha prática clínica é fundamentada na Análise do Comportamento e no Behaviorismo Radical, com ênfase na análise funcional do comportamento e na compreensão histórica das contingências que mantêm o sofrimento psicológico. Trabalho principalmente com a Terapia Analítico-Comportamental, integrando, quando pertinente, recursos da ACT, FAP e DBT, sempre sob critérios funcionais claros.
+Minha prática clínica é fundamentada na Análise do Comportamento e no Behaviorismo Radical,
+com ênfase na análise funcional e na compreensão histórica dos repertórios comportamentais.
 </p>
 <p>
-Não trabalho com promessas rápidas, soluções simplistas ou abordagens descontextualizadas. A intervenção clínica é construída de forma ética, baseada em evidências científicas e adaptada à singularidade de cada pessoa.
+Atuo principalmente com Terapia Analítico-Comportamental, integrando recursos da ACT e FAP
+quando clinicamente pertinentes, sempre com base em evidências científicas.
 </p>
 </section>
 
 <!-- PODCAST -->
-<section id="podcast">
+<section class="light" id="podcast">
 <h2>Podcast</h2>
-<p>Entre Estímulos — Psicologia, ciência e comportamento.</p>
-<p>
-<a href="https://open.spotify.com/show/03I8afdx9f1b62Tb0SnsAK" target="_blank">
-Ouvir no Spotify
-</a>
-</p>
+
+<div class="podcast-box">
+  <img src="assets/podcast-capa.jpg" alt="Capa do podcast Entre Estímulos">
+  <div>
+    <p>
+      <strong>Entre Estímulos</strong> é um podcast de divulgação científica e psicoeducação,
+      abordando temas da Psicologia, filosofia, antropologia e neurociência.
+    </p>
+    <p>
+      <a href="https://open.spotify.com/show/03I8afdx9f1b62Tb0SnsAK" target="_blank">
+        Ouvir no Spotify
+      </a>
+    </p>
+  </div>
+</div>
 </section>
 
 <!-- BLOG -->
-<section id="blog">
+<section class="dark" id="blog">
 <h2>Blog</h2>
 
 <div class="blog-container">
 
-<!-- POST 1 -->
 <article class="blog-card">
 <h3>O que são as Psicoterapias Comportamentais</h3>
 <button class="blog-toggle" data-target="post1">Ler o texto completo</button>
 <div class="blog-full" id="post1">
 <p>
-As psicoterapias comportamentais constituem um conjunto de abordagens clínicas fundamentadas nos princípios da Análise do Comportamento e do behaviorismo radical...
+As psicoterapias comportamentais constituem um conjunto de abordagens clínicas fundamentadas
+nos princípios da Análise do Comportamento e do behaviorismo radical...
 </p>
-<p>
-[➡️ AQUI entra TODO o texto integral do PDF, sem cortes.
-Eu deixei o espaço preparado exatamente para colar o conteúdo completo.]
-</p>
+<!-- TEXTO INTEGRAL DO PDF DEVE SER COLADO AQUI -->
 </div>
 </article>
 
-<!-- POST 2 -->
 <article class="blog-card">
 <h3>Técnicas Comportamentais de Autorregulação Fisiológica e Emocional</h3>
 <button class="blog-toggle" data-target="post2">Ler o texto completo</button>
 <div class="blog-full" id="post2">
-<p>
-Este guia reúne técnicas baseadas em evidências para o manejo da ativação fisiológica e do sofrimento emocional, organizadas de forma prática e acessível.
-</p>
 
-<h4>1. Compreendendo a ativação fisiológica</h4>
-<p>
-A ativação fisiológica envolve respostas do sistema nervoso autônomo associadas a estresse, ansiedade e ameaça percebida.
-</p>
+<h4>1. Ativação fisiológica</h4>
+<p>Resposta do organismo a demandas percebidas como ameaçadoras.</p>
 
 <h4>2. Respiração diafragmática</h4>
-<p>
-A respiração lenta e profunda atua diretamente sobre o sistema parassimpático, promovendo redução da excitação fisiológica.
-</p>
+<p>Técnica voltada à redução da ativação autonômica.</p>
 
 <h4>3. Relaxamento muscular progressivo</h4>
-<p>
-Consiste na contração e relaxamento sistemático de grupos musculares, favorecendo discriminação corporal e redução da tensão.
-</p>
+<p>Contração e relaxamento sistemático de grupos musculares.</p>
 
-<h4>4. Estratégias de grounding</h4>
-<p>
-Técnicas que auxiliam no retorno ao presente por meio de estímulos sensoriais, úteis em quadros de ansiedade intensa.
-</p>
+<h4>4. Grounding</h4>
+<p>Estratégias sensoriais para orientação ao presente.</p>
 
 <p>
-⚠️ Todas as técnicas devem ser utilizadas dentro de um plano terapêutico individualizado e não substituem acompanhamento psicológico.
+Essas técnicas devem ser utilizadas como ferramentas auxiliares e não substituem
+o acompanhamento psicológico.
 </p>
+
 </div>
 </article>
 
 </div>
 </section>
 
+<!-- CONTATO -->
+<section class="light contact" id="contato">
+<h2>Contato</h2>
+<p>📞 (53) 99105-3796</p>
+<p>📍 Atendimento presencial e online</p>
+</section>
+
 <script>
 document.querySelectorAll(".blog-toggle").forEach(btn=>{
   btn.addEventListener("click",()=>{
-    const target=document.getElementById(btn.dataset.target);
-    target.classList.toggle("active");
+    document.getElementById(btn.dataset.target).classList.toggle("active");
   });
 });
 </script>
